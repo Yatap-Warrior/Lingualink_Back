@@ -1,3 +1,11 @@
 logging:
   config:
     classpath: logback.yml
+
+spring:
+  data:
+    mongodb:
+      uri:
+        mongodb+srv://developer:developer@lingualink.3telbuh.mongodb.net/?retryWrites=true&w=majority
+      database:
+        lingualink
