@@ -1,4 +1,4 @@
-package com.lingualink.linglink.test.document;
+package com.lingualink.linglink.test;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,21 +11,12 @@ public class TestDocument {
     private String name;
     private String message;
 
-    public TestDocument(String id, String name, String message) {
-        this.id = id;
-        this.name = name;
-        this.message = message;
-    }
-
     public TestDocument(String name, String message) {
         this.id = null;
         this.name = name;
         this.message = message;
     }
 
-    public String getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -35,9 +26,6 @@ public class TestDocument {
         return message;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -50,7 +38,6 @@ public class TestDocument {
     @Override
     public String toString() {
         return "TestDocument{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", message='" + message + '\'' +
                 '}';

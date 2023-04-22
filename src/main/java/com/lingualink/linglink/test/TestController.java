@@ -1,13 +1,12 @@
-package com.lingualink.linglink.test.controller;
+package com.lingualink.linglink.test;
 
-import com.lingualink.linglink.test.document.TestDocument;
-import com.lingualink.linglink.test.service.TestService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/test")
@@ -46,7 +45,7 @@ public class TestController {
     public List<TestDocument> testFind(@PathVariable("key") String key,
                                        @PathVariable("value") String value) {
         logger.info("=============================== testInfo() ===============================");
-        List<TestDocument> result = null;
+        List<TestDocument> result = new ArrayList<>();
 
         try {
             result = testService.mongoFind(key, value);

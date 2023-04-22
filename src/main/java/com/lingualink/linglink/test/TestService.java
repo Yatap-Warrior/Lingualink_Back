@@ -1,7 +1,7 @@
-package com.lingualink.linglink.test.service;
+package com.lingualink.linglink.test;
 
-import com.lingualink.linglink.test.dao.TestDao;
-import com.lingualink.linglink.test.document.TestDocument;
+import com.lingualink.linglink.test.TestDao;
+import com.lingualink.linglink.test.TestDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
