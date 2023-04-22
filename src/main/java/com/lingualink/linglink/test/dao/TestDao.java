@@ -23,7 +23,6 @@ public class TestDao {
     public List<TestDocument> testFind(String key, String val) throws Exception {
         Query query = new Query(new Criteria(key).is(val));
 
-        List<TestDocument> result = mongoTemplate.find(query, TestDocument.class, "test");
-        return result;
+        return mongoTemplate.find(query, TestDocument.class, "test");
     }
 }
