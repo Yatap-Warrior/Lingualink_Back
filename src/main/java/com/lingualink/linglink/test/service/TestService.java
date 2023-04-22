@@ -1,18 +1,23 @@
 package com.lingualink.linglink.test.service;
 
+import com.lingualink.linglink.test.dao.TestDao;
 import com.lingualink.linglink.test.document.TestDocument;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TestService {
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    private TestDao testDao;
 
-    public void mongoInsert() {
-        TestDocument test = new TestDocument(1L, "테스트", "테스트테스트");
-        mongoTemplate.insert(test);
+    public void mongoInsert(String name, String value) throws Exception {
+        testDao.testInsert(name, value);
+    }
+
+    public List<TestDocument> mongoFind(String key, String val) throws Exception {
+        return testDao.testFind(key, val);
     }
 }

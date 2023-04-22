@@ -7,17 +7,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TestDocument {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private String message;
 
-    public TestDocument(Long id, String name, String message) {
+    public TestDocument(String id, String name, String message) {
         this.id = id;
         this.name = name;
         this.message = message;
     }
 
-    public Long getId() {
+    public TestDocument(String name, String message) {
+        this.id = null;
+        this.name = name;
+        this.message = message;
+    }
+
+    public String getId() {
         return id;
     }
 
@@ -29,7 +35,7 @@ public class TestDocument {
         return message;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
