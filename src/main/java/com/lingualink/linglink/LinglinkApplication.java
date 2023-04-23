@@ -1,11 +1,11 @@
 package com.lingualink.linglink;
 
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+@EnableEncryptableProperties
 @SpringBootApplication
-@EnableAspectJAutoProxy
 public class LinglinkApplication {
 
 	public static void main(String[] args) {

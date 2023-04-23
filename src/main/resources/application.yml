@@ -6,6 +6,10 @@ spring:
   data:
     mongodb:
       uri:
-        mongodb+srv://developer:developer@lingualink.3telbuh.mongodb.net/?retryWrites=true&w=majority
+        ENC(ugTZlDJH13O9FgiacAuX5jRalW7xRQzAzrMcrD0V197TMGc1BL+kU0lo5xsJNC9yeE3HYdj1kSWqoHLdi1FyfuBTc1PMFnnA4UQSuhUAwV0QKnNZs7lY/irVDryRg4qelgftG0UWcAU=)
       database:
         lingualink
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
