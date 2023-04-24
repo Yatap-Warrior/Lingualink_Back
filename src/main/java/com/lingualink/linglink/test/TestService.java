@@ -1,7 +1,5 @@
 package com.lingualink.linglink.test;
 
-import com.lingualink.linglink.test.TestDao;
-import com.lingualink.linglink.test.TestDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +17,9 @@ public class TestService {
 
     public List<TestDocument> mongoFind(String key, String val) throws Exception {
         return testDao.testFind(key, val);
+    }
+
+    public void mongoDelete(String key, String val) throws Exception {
+        testDao.testDelete(key, val);
     }
 }

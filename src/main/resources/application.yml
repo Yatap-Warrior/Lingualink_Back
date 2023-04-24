@@ -9,6 +9,9 @@ spring:
         ENC(ugTZlDJH13O9FgiacAuX5jRalW7xRQzAzrMcrD0V197TMGc1BL+kU0lo5xsJNC9yeE3HYdj1kSWqoHLdi1FyfuBTc1PMFnnA4UQSuhUAwV0QKnNZs7lY/irVDryRg4qelgftG0UWcAU=)
       database:
         lingualink
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 jasypt:
   encryptor:
