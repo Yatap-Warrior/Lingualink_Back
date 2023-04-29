@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  backend:
+  linglink-back:
     build:
       dockerfile: Dockerfile
     expose:
@@ -11,16 +11,22 @@ services:
       - backend
     ports:
       - 8080:8080
+    restart: always
     environment:
       - JASYPT_KEY=${JASYPT_KEY}
+      - ENV CHOKIDAR_USEPOLLING=true
 
-  web:
+  nginx:
     image: nginx
+    container_name: nginx
     ports:
       - 80:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
+      - linglink-back
+    restart: always
+    networks:
       - backend
 
 networks:
