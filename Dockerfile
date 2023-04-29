@@ -1,7 +1,3 @@
-#EXPOSE 8080
-#ADD ./build/libs/*.jar app.jar
-
-
 FROM openjdk:17-jdk
 WORKDIR /usr/src/app
 EXPOSE 8080
