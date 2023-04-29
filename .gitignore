@@ -21,6 +21,7 @@ nbdist/
 .nb-gradle/
 bin/
 
+.env
 HELP.md
 
 ## Gradle ###

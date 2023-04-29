@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile
+    expose:
+      - 8080
+    container_name: linglink-back
+    networks:
+      - backend
+    ports:
+      - 8080:8080
+    environment:
+      - JASYPT_KEY=${JASYPT_KEY}
+
+  web:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
