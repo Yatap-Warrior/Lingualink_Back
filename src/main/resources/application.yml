@@ -6,7 +6,8 @@ spring:
   data:
     mongodb:
       uri:
-        ENC(YyJZtbSiGTlWqn54PXlPtbGavWNajLJS5dcpUTY6oeI6kEsGpohOGFwIyWYIXT26aP5n4SZFaZnMGaZAqPr3pfqR1SWXAVQJugvO/EL1yhdkVsbtrKwpciKCA1IasFqSUZdsAOmq3F0=)
+        ${ATLAS_KEY}
+      #        ENC(YyJZtbSiGTlWqn54PXlPtbGavWNajLJS5dcpUTY6oeI6kEsGpohOGFwIyWYIXT26aP5n4SZFaZnMGaZAqPr3pfqR1SWXAVQJugvO/EL1yhdkVsbtrKwpciKCA1IasFqSUZdsAOmq3F0=)
       database:
         lingualink
   mvc:

@@ -7,13 +7,14 @@ services:
     expose:
       - 8080
     container_name: linglink-back
+    env_file:
+      - .env
     networks:
       - backend
     ports:
       - 8080:8080
     restart: always
     environment:
-      - JASYPT_KEY=${JASYPT_KEY}
       - ENV CHOKIDAR_USEPOLLING=true
 
   nginx:
