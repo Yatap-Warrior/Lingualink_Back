@@ -25,7 +25,7 @@ bin/
 HELP.md
 
 ## Gradle ###
-/.gradle/
+#/.gradle/
 #gradlew
 #gradlew.bat
 **/build/
