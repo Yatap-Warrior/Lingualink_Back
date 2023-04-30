@@ -1,4 +1,4 @@
-package com.lingualink.linglink.config;
+package com.lingualink.linglink.global.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;

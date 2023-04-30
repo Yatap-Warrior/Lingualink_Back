@@ -1,4 +1,4 @@
-package com.lingualink.linglink.config;
+package com.lingualink.linglink.global.config;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
