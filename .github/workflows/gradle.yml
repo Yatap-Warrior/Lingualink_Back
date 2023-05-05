@@ -49,9 +49,9 @@ jobs:
       - name: Docker Compose Up
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.EC2_HOST }}
           username: ubuntu
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.EC2_KEY }}
           script:
             sudo docker pull ${{ secrets.DOCKER_REPO }}/linglink-back
             docker-compose up -f docker-compose.yml up linglink-back

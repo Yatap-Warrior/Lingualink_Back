@@ -3,33 +3,11 @@ version: "3"
 services:
   linglink-back:
     build:
+      context: ./
       dockerfile: Dockerfile
+    #    image: gardenee/linglink-back
     expose:
       - 8080
-    container_name: linglink-back
-    env_file:
-      - .env
-    networks:
-      - backend
     ports:
       - 8080:8080
     restart: always
-    environment:
-      - ENV CHOKIDAR_USEPOLLING=true
-
-  nginx:
-    image: nginx
-    container_name: nginx
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      - linglink-back
-    restart: always
-    networks:
-      - backend
-
-networks:
-  backend:
-    driver: bridge
