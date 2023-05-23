@@ -29,6 +29,7 @@ HELP.md
 #gradlew
 #gradlew.bat
 **/build/
+.gradle
 #!gradle/wrapper/gradle-wrapper.jar
 docker-compose.yml
 
