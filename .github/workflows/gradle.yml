@@ -66,4 +66,4 @@ jobs:
             sudo docker-compose down
             sudo docker system prune -a
             sudo docker-compose pull
-            sudo nohup docker-compose up &
+            sudo nohup docker-compose up -d
