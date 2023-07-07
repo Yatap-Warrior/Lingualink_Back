@@ -18,7 +18,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Api(value = "sample", tags = {"swagger", "v1", "api"})
-@RequestMapping("/v1/sample")
+@RequestMapping("/v0/sample")
 @RestController
 public class SampleRestController {
 
