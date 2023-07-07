@@ -1,29 +1,31 @@
-package com.lingualink.linglink.room.dto;
+package com.lingualink.linglink.room.document;
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
-@Document("room")
+@Document(collection = "rooms")
 public class RoomDocument {
 
 	@Id
 	private String id;
 	private String title;
 	private String detail;
-	private String[] tags;
+	private List<String> tags;
 	private String language;
 	private String password;
 	@JsonProperty("max_participant")
-	private int maxParticipant;
+	private Integer maxParticipant;
 	@JsonProperty("participant_id")
-	private String[] participantId;
+	private List<String> participantId;
 
-	public RoomDocument(String title, String detail, String[] tags, String language, String password,
-		int maxParticipant, String[] participantId) {
+	public RoomDocument(String title, String detail, List<String> tags, String language, String password,
+		Integer maxParticipant, List<String> participantId) {
 		this.id = null;
 		this.title = title;
 		this.detail = detail;
@@ -32,6 +34,10 @@ public class RoomDocument {
 		this.password = password;
 		this.maxParticipant = maxParticipant;
 		this.participantId = participantId;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public String getTitle() {
@@ -50,11 +56,11 @@ public class RoomDocument {
 		this.detail = detail;
 	}
 
-	public String[] getTags() {
+	public List<String> getTags() {
 		return tags;
 	}
 
-	public void setTags(String[] tags) {
+	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
 
@@ -74,19 +80,23 @@ public class RoomDocument {
 		this.password = password;
 	}
 
-	public int getMaxParticipant() {
+	@JsonGetter("max_participant")
+	public Integer getMaxParticipant() {
 		return maxParticipant;
 	}
 
-	public void setMaxParticipant(int maxParticipant) {
+	@JsonSetter("max_participant")
+	public void setMaxParticipant() {
 		this.maxParticipant = maxParticipant;
 	}
 
-	public String[] getParticipantId() {
+	@JsonGetter("participant_id")
+	public List<String> getParticipantId() {
 		return participantId;
 	}
 
-	public void setParticipantId(String[] participantId) {
+	@JsonSetter("participant_id")
+	public void setParticipantId(List<String> participantId) {
 		this.participantId = participantId;
 	}
 
@@ -95,11 +105,11 @@ public class RoomDocument {
 		return "RoomDocument{" +
 			"title='" + title + '\'' +
 			", detail='" + detail + '\'' +
-			", tags=" + Arrays.toString(tags) +
+			", tags=" + tags +
 			", language='" + language + '\'' +
 			", password='" + password + '\'' +
 			", maxParticipant=" + maxParticipant +
-			", participantId=" + Arrays.toString(participantId) +
+			", participantId=" + participantId +
 			'}';
 	}
 }
