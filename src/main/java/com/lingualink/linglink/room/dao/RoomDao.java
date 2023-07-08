@@ -24,7 +24,7 @@ public class RoomDao {
 	public List<RoomDocument> findAllRooms(String language) throws Exception {
 		return mongoTemplate.find(
 			Query.query(Criteria
-				.where("language").is(language))
+				.where(RoomEnum.LANGUAGE.asString()).is(language))
 			, RoomDocument.class
 			, "rooms");
 	}
@@ -33,7 +33,7 @@ public class RoomDao {
 		return mongoTemplate.find(
 			Query.query(Criteria
 				.where(RoomEnum.LANGUAGE.asString()).is(language)
-				.and(RoomEnum.KEYWORD.asString()).regex("/" + keyword + "/"))
+				.and(RoomEnum.KEYWORD.asString()).regex(keyword))
 			, RoomDocument.class
 			, "rooms");
 	}
