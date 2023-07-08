@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value = "sample", tags = {"swagger", "v1", "api"})
+@Api(value = "sample", tags = {"sample"})
 @RequestMapping("/v0/sample")
 @RestController
 public class SampleRestController {
@@ -27,7 +27,7 @@ public class SampleRestController {
 	@Autowired
 	public SampleService sampleService;
 
-	@ApiOperation(value = "delete sample", notes = "ㅠㅠ")
+	@ApiOperation(value = "delete sample")
 	@DeleteMapping("/{key}/{value}")
 	public String testDelete(@PathVariable("key") String key, @PathVariable("value") String value) {
 		try {
@@ -38,7 +38,7 @@ public class SampleRestController {
 		return "";
 	}
 
-	@ApiOperation(value = "insert sample", notes = "0.0")
+	@ApiOperation(value = "insert sample")
 	@PostMapping("/{key}/{value}")
 	public String sampleInsert(@PathVariable("key") String name,
 		@PathVariable("value") String value) {
@@ -54,7 +54,7 @@ public class SampleRestController {
 		return "";
 	}
 
-	@ApiOperation(value = "read sample", notes = "ㅎㅎ")
+	@ApiOperation(value = "read sample")
 	@ResponseBody
 	@GetMapping(value = "/{key}/{value}", produces = "application/json;charset=UTF-8")
 	public List<SampleDocument> testFind(@PathVariable("key") String key,

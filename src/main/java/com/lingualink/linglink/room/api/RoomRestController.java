@@ -14,9 +14,11 @@ import com.lingualink.linglink.room.document.RoomDocument;
 import com.lingualink.linglink.room.service.RoomService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value = "rooms", tags = {"swagger", "v1", "api"})
+@Api(value = "rooms", tags = {"v1", "rooms"})
 @RequestMapping("/v1/rooms")
 @RestController
 public class RoomRestController {
@@ -27,6 +29,24 @@ public class RoomRestController {
 	private RoomService roomService;
 
 	@ApiOperation(value = "findAllRooms", notes = "언어와 키워드로 필터링한 입장 가능한 모든 방을 List<RoomDocument> 형식으로 return")
+	@ApiImplicitParams({
+		@ApiImplicitParam(
+			name = "language"
+			, value = "언어"
+			, required = true
+			, dataType = "string"
+			, paramType = "query string"
+			, defaultValue = "None"
+		),
+		@ApiImplicitParam(
+			name = "keyword"
+			, value = "검색 키워드 (공백 가능)"
+			, required = false
+			, dataType = "string"
+			, paramType = "query string"
+			, defaultValue = "None"
+		)
+	})
 	@GetMapping(value = "")
 	public List<RoomDocument> findAllRooms(
 		@RequestParam(name = "language") String language,
