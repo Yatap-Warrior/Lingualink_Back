@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "rooms")
 public class RoomDocument {
@@ -19,14 +16,13 @@ public class RoomDocument {
 	private List<String> tags;
 	private String language;
 	private String password;
-	@JsonProperty("max_participant")
+	@Field("max_participant")
 	private Integer maxParticipant;
-	@JsonProperty("participant_id")
+	@Field("participant_id")
 	private List<String> participantId;
 
 	public RoomDocument(String title, String detail, List<String> tags, String language, String password,
 		Integer maxParticipant, List<String> participantId) {
-		this.id = null;
 		this.title = title;
 		this.detail = detail;
 		this.tags = tags;
@@ -38,6 +34,10 @@ public class RoomDocument {
 
 	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -80,22 +80,18 @@ public class RoomDocument {
 		this.password = password;
 	}
 
-	@JsonGetter("max_participant")
 	public Integer getMaxParticipant() {
 		return maxParticipant;
 	}
 
-	@JsonSetter("max_participant")
-	public void setMaxParticipant() {
+	public void setMaxParticipant(Integer maxParticipant) {
 		this.maxParticipant = maxParticipant;
 	}
 
-	@JsonGetter("participant_id")
 	public List<String> getParticipantId() {
 		return participantId;
 	}
 
-	@JsonSetter("participant_id")
 	public void setParticipantId(List<String> participantId) {
 		this.participantId = participantId;
 	}
