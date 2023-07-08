@@ -36,7 +36,7 @@ jobs:
         shell: bash
 
       - name: Gradle Build
-        run: ./gradlew build
+        run: ./gradlew bootjar
 
       - name: Set Up Docker Buildx
         uses: docker/setup-buildx-action@v1
