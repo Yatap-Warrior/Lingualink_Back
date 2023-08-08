@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.Operation;
 
-@Api(value = "sample", tags = {"sample"})
+@Hidden
 @RequestMapping("/v0/sample")
 @RestController
 public class SampleRestController {
@@ -27,7 +27,7 @@ public class SampleRestController {
 	@Autowired
 	public SampleService sampleService;
 
-	@ApiOperation(value = "delete sample")
+	@Operation(summary = "delete sample")
 	@DeleteMapping("/{key}/{value}")
 	public String testDelete(@PathVariable("key") String key, @PathVariable("value") String value) {
 		try {
@@ -38,7 +38,7 @@ public class SampleRestController {
 		return "";
 	}
 
-	@ApiOperation(value = "insert sample")
+	@Operation(summary = "insert sample")
 	@PostMapping("/{key}/{value}")
 	public String sampleInsert(@PathVariable("key") String name,
 		@PathVariable("value") String value) {
@@ -54,7 +54,7 @@ public class SampleRestController {
 		return "";
 	}
 
-	@ApiOperation(value = "read sample")
+	@Operation(summary = "read sample")
 	@ResponseBody
 	@GetMapping(value = "/{key}/{value}", produces = "application/json;charset=UTF-8")
 	public List<SampleDocument> testFind(@PathVariable("key") String key,

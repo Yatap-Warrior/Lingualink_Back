@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lingualink.linglink.room.document.RoomDocument;
 import com.lingualink.linglink.room.service.RoomService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Api(value = "rooms", tags = {"v1", "rooms"})
+@Tag(name = "room", description = "화상 대화방 관련 API")
 @RequestMapping("/v1/rooms")
 @RestController
 public class RoomRestController {
@@ -28,23 +28,16 @@ public class RoomRestController {
 	@Autowired
 	private RoomService roomService;
 
-	@ApiOperation(value = "findAllRooms", notes = "언어와 키워드로 필터링한 입장 가능한 모든 방을 List<RoomDocument> 형식으로 return")
-	@ApiImplicitParams({
-		@ApiImplicitParam(
+	@Operation(summary = "findAllRooms", description = "언어와 키워드로 필터링한 입장 가능한 모든 방을 찾아서 List<RoomDocument> 형식으로 return")
+	@Parameters({
+		@Parameter(
 			name = "language"
-			, value = "언어"
+			, description = "언어"
 			, required = true
-			, dataType = "string"
-			, paramType = "query string"
-			, defaultValue = "None"
 		),
-		@ApiImplicitParam(
+		@Parameter(
 			name = "keyword"
-			, value = "검색 키워드 (공백 가능)"
-			, required = false
-			, dataType = "string"
-			, paramType = "query string"
-			, defaultValue = "None"
+			, description = "검색 키워드 (공백 가능)"
 		)
 	})
 	@GetMapping(value = "")
